@@ -1,0 +1,22 @@
+<div id="confirm-modal" class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__container modal--confirm">
+      <div class="modal__header">
+        <h3 class="modal__title">Delete Task</h3>
+        <button id="close-confirm-btn" class="modal__close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="modal__icon">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <p>Are you sure you want to delete this task? This action cannot be undone.</p>
+        <div class="modal__actions">
+          <button type="button" id="cancel-delete-btn" class="button modal__close-btn">Cancel</button>
+          <button type="button" id="confirm-delete-btn" class="button modal__delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+.header {
+    background-image: linear-gradient(to right, var(--color-primary-dark), var(--color-primary));
+    color: var(--color-white);
+    /* padding: 1.5rem 1rem; */
+    position: relative;
+    /* height: 35vh; */
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-white);
+  padding: 1rem 1rem;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.header__title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: var(--main-font);
+}
+
+.header__subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: var(--main-font);
+}
+
+.header__icon {
+  color: var(--nav-link-text-color);
+}
+
+.header__icon--check-circle {
+  color: var(--button-primary--color);
+}
+
+/* Quote container */
+.header__quote-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header__quote-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.header__quote-content {
+  flex: 1;
+}
+
+.header__quote-text {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  font-family: var(--main-font);
+}
+
+.header__quote-author {
+  text-align: right;
+  font-size: 0.9rem;
+  font-family: var(--main-font);
+}
