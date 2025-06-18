@@ -21,6 +21,12 @@ export class TaskModal {
 
     const closeBtn = document.getElementById('close-modal-btn');
     const cancelBtn = document.getElementById('cancel-task-btn');
+    const titleInput = document.getElementById('task-title');
+    if (titleInput) {
+      titleInput.addEventListener('input', () => {
+        document.getElementById('title-error').textContent = '';
+      });
+    }
     
     if (closeBtn) {
       closeBtn.removeEventListener('click', this.close);
