@@ -1,4 +1,3 @@
-// Simple task filters
 import { taskManager } from '../models/TaskManager.js';
 
 export class TaskFilters {
