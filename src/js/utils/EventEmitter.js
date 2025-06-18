@@ -1,4 +1,3 @@
-// Simple event emitter
 export class EventEmitter {
   constructor() {
     this.events = {};
