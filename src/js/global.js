@@ -1,4 +1,4 @@
-// Simple app initialization
+// App initialization
 import { HeaderView } from './views/HeaderView.js';
 import { TaskView } from './views/TaskView.js';
 
