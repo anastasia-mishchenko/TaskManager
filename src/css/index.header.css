@@ -1,0 +1,123 @@
+.header {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: var(--color-white);
+  position: relative;
+  text-align: center;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.header__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.header__subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+.header__icon {
+  color: var(--color-white);
+}
+
+.header__icon--check-circle {
+  color: var(--color-white);
+}
+
+/* Simple quote container */
+.header__quote-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header__quote-box {
+  background-color: rgba(var(--color-white-rgb), 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(var(--color-white-rgb), 0.2);
+}
+
+.header__icon--info {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  color: rgba(var(--color-white-rgb), 0.8);
+}
+
+.header__quote-content {
+  flex: 1;
+  text-align: left;
+}
+
+.header__quote-text {
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0 0 0.75rem 0;
+}
+
+.header__quote-author {
+  text-align: right;
+  font-size: 1rem;
+  color: rgba(var(--color-white-rgb), 0.8);
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .header__content {
+    padding: 2rem 1rem;
+  }
+  
+  .header__title {
+    font-size: 2rem;
+  }
+  
+  .header__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header__quote-box {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .header__quote-content {
+    text-align: center;
+  }
+  
+  .header__quote-author {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}

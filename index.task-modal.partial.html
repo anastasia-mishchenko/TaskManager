@@ -1,0 +1,47 @@
+<div id="task-modal" class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__container">
+      <div class="modal__header">
+        <h3 id="modal-title" class="modal__title">Add New Task</h3>
+        <button id="close-modal-btn" class="modal__close-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="modal__icon">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <form id="task-form" class="modal__form">
+          <div class="modal__form-group">
+            <label for="task-title" class="modal__label">Title</label>
+            <input type="text" id="task-title" class="modal__input" placeholder="Task title" required>
+            <div class="modal__error" id="title-error"></div>
+          </div>
+          
+          <div class="modal__form-group">
+            <label for="task-description" class="modal__label">Description</label>
+            <textarea id="task-description" class="modal__textarea" placeholder="Task description" rows="3"></textarea>
+          </div>
+          
+          <div class="modal__form-group">
+            <label for="task-priority" class="modal__label">Priority</label>
+            <select id="task-priority" class="modal__select">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          
+          <div class="modal__form-group">
+            <label for="task-due-date" class="modal__label">Due Date (Optional)</label>
+            <input type="date" id="task-due-date" class="modal__input">
+          </div>
+          
+          <div class="modal__actions">
+            <button type="button" id="cancel-task-btn" class="modal__btn modal__btn--secondary">Cancel</button>
+            <button type="submit" id="save-task-btn" class="modal__btn modal__btn--primary">Save Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
