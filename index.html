@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager</title>
-    <link rel="stylesheet" href="src/css/index.css"/>
-    <link rel="icon" type="image/x-icon" href="src/css/favicon.png">
+    <link rel="stylesheet" href="src/css/index.css" />
+    <link rel="icon" type="image/x-icon" href="src/css/favicon.png" />
     <script
       src="https://unpkg.com/htmx.org@1.9.10"
       integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
       crossorigin="anonymous"
     ></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <div
-          class="header__container"
-          data-hx-trigger="load"
-          data-hx-swap="outerHTML"
-          data-hx-get="index.header.partial.html"
-        ></div>
+      <div
+        class="header__container"
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.header.partial.html"
+      ></div>
     </header>
     <main class="main">
       <div
@@ -29,16 +29,18 @@
         data-hx-get="index.main.partial.html"
       ></div>
     </main>
-    <div class="task-modal"
+    <div
+      class="task-modal"
       data-hx-trigger="load"
       data-hx-swap="outerHTML"
       data-hx-get="index.task-modal.partial.html"
     ></div>
-    <div class="confirm-modal"
+    <div
+      class="confirm-modal"
       data-hx-trigger="load"
       data-hx-swap="outerHTML"
       data-hx-get="index.confirm-modal.partial.html"
     ></div>
     <script type="module" src="src/js/global.js"></script>
-</body>
+  </body>
 </html>

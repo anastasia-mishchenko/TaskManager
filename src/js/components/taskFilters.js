@@ -1,11 +1,11 @@
-import { taskManager } from '../models/TaskManager.js';
+import { taskManager } from "../models/TaskManager.js";
 
 export class TaskFilters {
   constructor() {
     this.filters = {
-      searchTerm: '',
+      searchTerm: "",
       priority: null,
-      completed: null
+      completed: null,
     };
   }
 
@@ -23,9 +23,9 @@ export class TaskFilters {
 
   clearAll() {
     this.filters = {
-      searchTerm: '',
+      searchTerm: "",
       priority: null,
-      completed: null
+      completed: null,
     };
   }
 
@@ -34,9 +34,11 @@ export class TaskFilters {
   }
 
   hasActiveFilters() {
-    return this.filters.searchTerm || 
-           this.filters.priority !== null || 
-           this.filters.completed !== null;
+    return (
+      this.filters.searchTerm ||
+      this.filters.priority !== null ||
+      this.filters.completed !== null
+    );
   }
 
   get activeFilters() {

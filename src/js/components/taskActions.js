@@ -1,4 +1,4 @@
-import { taskManager } from '../models/TaskManager.js';
+import { taskManager } from "../models/TaskManager.js";
 
 export class TaskActions {
   constructor(taskModal, confirmDialog) {
@@ -10,20 +10,26 @@ export class TaskActions {
 
   init() {
     // Confirm dialog events
-    document.getElementById('close-confirm-btn')?.addEventListener('click', () => this.closeConfirmDialog());
-    document.getElementById('cancel-delete-btn')?.addEventListener('click', () => this.closeConfirmDialog());
-    document.getElementById('confirm-delete-btn')?.addEventListener('click', () => {
-      if (this.taskToDeleteId) {
-        this.deleteTask(this.taskToDeleteId);
-        this.closeConfirmDialog();
-      }
-    });
+    document
+      .getElementById("close-confirm-btn")
+      ?.addEventListener("click", () => this.closeConfirmDialog());
+    document
+      .getElementById("cancel-delete-btn")
+      ?.addEventListener("click", () => this.closeConfirmDialog());
+    document
+      .getElementById("confirm-delete-btn")
+      ?.addEventListener("click", () => {
+        if (this.taskToDeleteId) {
+          this.deleteTask(this.taskToDeleteId);
+          this.closeConfirmDialog();
+        }
+      });
   }
 
   toggleTaskCompletion(taskId) {
-    console.debug('TaskActions: Toggling task completion for id:', taskId);
+    console.debug("TaskActions: Toggling task completion for id:", taskId);
     const result = taskManager.toggleTaskCompletion(taskId);
-    console.debug('TaskActions: Toggle result:', result);
+    console.debug("TaskActions: Toggle result:", result);
     return result;
   }
 
@@ -33,7 +39,7 @@ export class TaskActions {
 
   confirmDeleteTask(taskId) {
     this.taskToDeleteId = taskId;
-    this.confirmDialog?.classList.add('modal--visible');
+    this.confirmDialog?.classList.add("modal--visible");
   }
 
   deleteTask(taskId) {
@@ -41,7 +47,7 @@ export class TaskActions {
   }
 
   closeConfirmDialog() {
-    this.confirmDialog?.classList.remove('modal--visible');
+    this.confirmDialog?.classList.remove("modal--visible");
     this.taskToDeleteId = null;
   }
 }

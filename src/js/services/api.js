@@ -1,6 +1,6 @@
 class ApiService {
   constructor() {
-    this.baseUrl = '/api';
+    this.baseUrl = "/api";
   }
 
   async getRandomQuote() {
@@ -9,15 +9,15 @@ class ApiService {
       const data = await response.json();
       return data.success ? data.quote : this.getFallbackQuote();
     } catch (error) {
-      console.error('API error:', error);
+      console.error("API error:", error);
       return this.getFallbackQuote();
     }
   }
 
   getFallbackQuote() {
     return {
-      content: 'The key to success is to focus on goals, not obstacles.',
-      author: 'Unknown'
+      content: "The key to success is to focus on goals, not obstacles.",
+      author: "Unknown",
     };
   }
 }

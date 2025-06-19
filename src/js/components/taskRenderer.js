@@ -1,5 +1,5 @@
-import { formatDate, isDueSoon, isOverdue } from '../utils/dateUtils.js';
-import { taskManager } from '../models/TaskManager.js';
+import { formatDate, isDueSoon, isOverdue } from "../utils/dateUtils.js";
+import { taskManager } from "../models/TaskManager.js";
 
 export class TaskRenderer {
   constructor(taskList, emptyState) {
@@ -8,26 +8,24 @@ export class TaskRenderer {
   }
 
   renderTasks(tasks) {
-    const taskItems = this.taskList?.querySelectorAll('.task-item');
-    taskItems?.forEach(item => item.remove());
+    const taskItems = this.taskList?.querySelectorAll(".task-item");
+    taskItems?.forEach((item) => item.remove());
 
     if (tasks.length === 0) {
-      this.emptyState?.classList.remove('hidden');
+      this.emptyState?.classList.remove("hidden");
       return;
     }
 
-    this.emptyState?.classList.add('hidden');
+    this.emptyState?.classList.add("hidden");
 
     const sortedTasks = this.sortTasks(tasks);
-    sortedTasks.forEach(task => {
+    sortedTasks.forEach((task) => {
       const taskElement = this.createTaskElement(task);
       this.taskList?.appendChild(taskElement);
-      
-      // Add checkbox event listener
-      const checkbox = taskElement.querySelector('.task-checkbox');
+
+      const checkbox = taskElement.querySelector(".task-checkbox");
       if (checkbox) {
-        checkbox.addEventListener('click', () => {
-          console.debug('Checkbox clicked for task:', task.id);
+        checkbox.addEventListener("click", () => {
           taskManager.toggleTaskCompletion(task.id);
         });
       }
@@ -52,8 +50,8 @@ export class TaskRenderer {
   }
 
   createTaskElement(task) {
-    const taskElement = document.createElement('div');
-    taskElement.className = `task-item ${task.completed ? 'completed' : ''}`;
+    const taskElement = document.createElement("div");
+    taskElement.className = `task-item ${task.completed ? "completed" : ""}`;
     taskElement.dataset.id = task.id;
 
     const priorityClass = `priority-${task.priority}`;
@@ -63,19 +61,33 @@ export class TaskRenderer {
       <div class="task-header">
         <div class="task-content">
           <div class="task-title-container">
-            <button class="task-checkbox ${task.completed ? 'completed' : ''}" data-id="${task.id}" type="button">
-              ${task.completed ? `
+            <button class="task-checkbox ${
+              task.completed ? "completed" : ""
+            }" data-id="${task.id}" type="button">
+              ${
+                task.completed
+                  ? `
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-              ` : ''}
+              `
+                  : ""
+              }
             </button>
-            <h3 class="task-title ${task.completed ? 'completed' : ''}">${this.escapeHtml(task.title)}</h3>
+            <h3 class="task-title ${
+              task.completed ? "completed" : ""
+            }">${this.escapeHtml(task.title)}</h3>
           </div>
           
-          ${task.description ? `
-            <p class="task-description ${task.completed ? 'completed' : ''}">${this.escapeHtml(task.description)}</p>
-          ` : ''}
+          ${
+            task.description
+              ? `
+            <p class="task-description ${
+              task.completed ? "completed" : ""
+            }">${this.escapeHtml(task.description)}</p>
+          `
+              : ""
+          }
           
           <div class="task-meta">
             <div class="task-badge priority-badge ${priorityClass}">
@@ -86,13 +98,17 @@ export class TaskRenderer {
         </div>
         
         <div class="task-actions">
-          <button class="task-action-btn edit" data-id="${task.id}" type="button">
+          <button class="task-action-btn edit" data-id="${
+            task.id
+          }" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
             </svg>
           </button>
-          <button class="task-action-btn delete" data-id="${task.id}" type="button">
+          <button class="task-action-btn delete" data-id="${
+            task.id
+          }" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="3 6 5 6 21 6"></polyline>
               <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -108,17 +124,17 @@ export class TaskRenderer {
   }
 
   createDueDateBadge(dueDate) {
-    if (!dueDate) return '';
+    if (!dueDate) return "";
 
-    let dueDateClass = '';
-    let prefix = 'Due: ';
+    let dueDateClass = "";
+    let prefix = "Due: ";
 
     if (isOverdue(dueDate)) {
-      dueDateClass = 'due-date-overdue';
-      prefix = 'Overdue: ';
+      dueDateClass = "due-date-overdue";
+      prefix = "Overdue: ";
     } else if (isDueSoon(dueDate)) {
-      dueDateClass = 'due-date-soon';
-      prefix = 'Due soon: ';
+      dueDateClass = "due-date-soon";
+      prefix = "Due soon: ";
     }
 
     return `
